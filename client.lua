@@ -30,10 +30,8 @@ end
 -- Inicialización al cargar el recurso
 CreateThread(function()
     DetectFramework()
-    print('^4==================================================================^7')
     print('^2[d87-speedometer]^7 Inicializado con éxito.')
     print(('^2[d87-speedometer]^7 Framework activo detectado: ^5%s^7'):format(CurrentFramework))
-    print('^4==================================================================^7')
 end)
 
 -- Teclado para el cinturón
