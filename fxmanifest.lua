@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Drako87/Dracatt'
-description 'D87 Speedometer - Velocímetro minimalista premium multiframework estilo ONX RP con Checker de versiones'
+description 'd87-speedometer - Velocímetro minimalista premium multiframework con Checker de versiones'
 version '1.0.0'
 
 -- Registramos los scripts compartidos, de cliente y el NUEVO de servidor
