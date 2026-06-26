@@ -14,9 +14,9 @@ CreateThread(function()
                 currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version', 0)
             })
         else
-            print('^1[D87 Speedometer] ERROR: El formato de la URL de GitHub en el config.lua es incorrecto.^7')
+            print('^1[d87-speedometer] ERROR: El formato de la URL de GitHub en el config.lua es incorrecto.^7')
         end
     else
-        print('^3[D87 Speedometer] Alerta: Config.GitHubRepo no configurado. Comprobación de versión omitida.^7')
+        print('^3[d87-speedometer] Alerta: Config.GitHubRepo no configurado. Comprobación de versión omitida.^7')
     end
 end)
