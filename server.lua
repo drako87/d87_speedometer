@@ -10,7 +10,8 @@ CreateThread(function()
     -- Si transcurrido el tiempo la librería ya está disponible en la memoria global
     if lib and lib.versionCheck then
         if Config.GitHubRepo and Config.GitHubRepo ~= 'https://github.com' then
-            local user, repo = Config.GitHubRepo:match("github%.com/([^/]+)/([^/]+)")
+            -- CORREGIDO: Expresión regular mejorada para admitir guiones, mayúsculas y barras finales en GitHub
+            local user, repo = Config.GitHubRepo:match("github%.com/([%w%-]+)/([%w%-]+)")
             
             if user and repo then
                 -- Ejecutamos el comprobador oficial de versiones en la nube
@@ -20,7 +21,7 @@ CreateThread(function()
                     currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version', 0)
                 })
             else
-                print('^1[D87 Speedometer] ERROR: El formato de la URL de GitHub en el config.lua es incorrecto.^7')
+                print('^1[D87 Speedometer] ERROR: El formato de la URL de GitHub en el config.lua es incorrecto u omitido.^7')
             end
         end
     else
