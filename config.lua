@@ -18,7 +18,8 @@ Config.ShowGearBox = true     -- Mostrar u ocultar el recuadro azul de las march
 
 -- AJUSTES MECÁNICOS Y ALERTAS
 Config.UseMPH = false             -- Cambiar a 'true' si prefieres Millas por Hora en lugar de KM/H
-Config.SeatbeltKey = 'B'          -- Tecla para el cinturón
+Config.SeatbeltKey = 'B'         -- Tecla física para ponerse/quitarse el cinturón
+Config.MinSpeedEject = 120.0      -- Velocidad mínima (en KM/H) para salir despedido en un choque si no llevas cinturón
 Config.CruiseKey = 'Y'            -- Tecla para activar/desactivar el Control de Crucero
 Config.FuelAlertPercent = 20      -- Reserva de gasolina
 Config.EngineAlertPercent = 30    -- Alerta de motor
@@ -39,3 +40,8 @@ Config.Radars = {
 
 -- COMPATIBILIDAD DE SCRIPTS EXTERNOS SEGÚN TU FRAMEWORK
 Config.FuelSystem = 'auto'        -- Opciones: 'auto', 'bazufix-fuel', 'ox_fuel', 'legacyfuel', 'qb-fuel'
+
+-- ⚙️ CONFIGURACIÓN DE MOTOR Y ASISTENCIA DE VOLCADO (NUEVO)
+Config.EngineKey = 'M'           -- Tecla física para encender/apagar el motor (Mapeo nativo de FiveM)
+Config.FlipDuration = 4000       -- Cuántos milisegundos (4 segundos) dura la barra de progreso al desvolcar
+Config.FlipDistance = 3.0        -- Distancia máxima en metros a la que debes estar del coche para desvolcarlo
