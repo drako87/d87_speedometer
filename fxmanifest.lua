@@ -9,14 +9,19 @@ shared_script '@ox_lib/init.lua'
 
 shared_script 'config.lua'
 
--- Cargamos primero la detección de frameworks y luego el resto de módulos
+-- Orden de carga importante:
+-- 1. state.lua      -> declara TODAS las variables globales compartidas antes de que nada las use
+-- 2. frameworks.lua  -> detección de framework y combustible
+-- 3. main.lua        -> bucle principal de telemetría/daño/eyección
+-- 4. features.lua    -> radar, atajos de teclado, integración ox_target
 client_scripts {
-    'frameworks.lua',
-    'client.lua',
-    'features.lua'
+    'client/state.lua',
+    'client/frameworks.lua',
+    'client/main.lua',
+    'client/features.lua'
 }
 
-server_script 'server.lua'
+server_script 'server/server.lua'
 ui_page 'html/ui.html'
 
 files {
