@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="ui.css">
 </head>
 <body>
-    <div id="onx-speedo" style="display: none;">
-        
+    <div id="d87-speedo" style="display: none;">
+
         <!-- SECCIÓN SUPERIOR PRINCIPAL -->
         <div class="top-layout">
-            
+
             <!-- Bloque 1: Velocidad y Marcha -->
             <div class="left-panel">
                 <div id="speed">000</div>
@@ -27,14 +27,14 @@
                 </div>
                 <div class="icons-mini-row">
                     <span id="icon-lights" class="mid-icon">💡</span>
-                    <span id="icon-cruise" class="mid-icon">⏱️</span> <!-- Nuevo icono de control de crucero -->
+                    <span id="icon-cruise" class="mid-icon">⏱️</span>
                 </div>
             </div>
 
             <!-- Bloque 3: Barras de Estado Verticales Gemelas (Derecha) -->
             <div class="bars-panel-right">
                 <!-- Motor -->
-                <div class="status-vertical">
+                <div class="status-vertical" id="engine-status-block">
                     <span class="status-label">H</span>
                     <div class="status-bars-container">
                         <div class="eng-bar" id="eb-6"></div>
@@ -47,7 +47,7 @@
                     <span class="status-label">🔧</span>
                 </div>
                 <!-- Gasolina -->
-                <div class="status-vertical">
+                <div class="status-vertical" id="fuel-status-block">
                     <span class="status-label">F</span>
                     <div class="status-bars-container">
                         <div class="f-bar" id="fb-6"></div>
@@ -77,13 +77,12 @@
                 <div class="rpm-block" id="rpm-17"></div><div class="rpm-block" id="rpm-18"></div>
                 <div class="rpm-block" id="rpm-19"></div><div class="rpm-block" id="rpm-20"></div>
             </div>
-            
-                        <div id="vehicle-container">
+
+            <div id="vehicle-container">
                 <div>
                     <span class="vehicle-key-icon">🔑</span>
                     <span id="vehicle-name">Cargando...</span>
                 </div>
-                <!-- NUEVO: Contenedor flotante para el Odómetro -->
                 <div id="odo-container">
                     <span id="odo-value">000000</span> <span class="odo-unit">KM</span>
                 </div>
