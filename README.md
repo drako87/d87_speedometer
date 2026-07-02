@@ -25,9 +25,31 @@
 ## ⚡ Ventajas Técnicas
 
 *   **Compatibilidad:** Soporte nativo para Qbox, QBCore y ESX Legacy.
-*   **Optimización:** Consumo de recursos eficiente (entre 0.01 ms y 0.02 ms).
+*   **Optimización:** Un único hilo de telemetría por vehículo (antes eran dos hilos leyendo el mismo vehículo cada 100ms); consumo de recursos eficiente (entre 0.01 ms y 0.02 ms).
 *   **Independencia:** Sistema autónomo, sin dependencias externas o librerías web.
 *   **Integración:** Compatible con los principales sistemas de combustible (`ox_fuel`, `LegacyFuel`, etc.).
+
+---
+
+## 📁 Estructura del recurso
+
+```
+d87-speedometer/
+├── fxmanifest.lua
+├── config.lua
+├── README.md
+├── client/
+│   ├── state.lua        -- variables globales compartidas (se carga primero)
+│   ├── frameworks.lua    -- detección de framework y sistema de combustible
+│   ├── main.lua          -- bucle de telemetría, daño de motor y eyección
+│   └── features.lua      -- radar, teclas, integración ox_target
+├── server/
+│   └── server.lua        -- versionCheck vía ox_lib
+└── html/
+    ├── ui.html
+    ├── ui.css
+    └── ui.js
+```
 
 ---
 
@@ -45,12 +67,24 @@ Config.EnableRadars = true         -- Activar radares
 Config.FuelSystem = 'auto'         -- Sistema de gasolina
 ```
 
+> **Nota:** por defecto `Config.EnableRadars` viene en `false` en `config.lua`. Cámbialo a `true` si quieres que los radares estén activos desde el primer arranque.
+
 ---
 
 ## 📥 Instalación
 
 1.  Coloca la carpeta `d87-speedometer` en tus recursos.
 2.  Añade `ensure d87-speedometer` a tu `server.cfg`.
+
+---
+
+## 🩹 Revisión / cambios respecto a la versión anterior
+
+*   **Corregido:** `ui.js` tenía un bloque de código duplicado que se ejecutaba en cada mensaje NUI (no solo en "update"), causando trabajo innecesario y estados inconsistentes del HUD.
+*   **Optimizado:** el hilo de telemetría (`client.lua`) y el hilo de detección de impactos/daño (`features.lua`) se fusionaron en `client/main.lua`, eliminando llamadas nativas duplicadas cada 100ms y una condición de carrera que hacía parpadear la barra de motor.
+*   **Corregido:** las variables globales compartidas (`seatbeltStatus`, `activeRadar`, etc.) ahora se declaran en un único archivo (`client/state.lua`) cargado primero, en vez de depender del orden de carga entre `client.lua` y `features.lua`.
+*   **Mejorado:** los selectores de `ui.js` que dependían de `nth-child` ahora usan IDs explícitos, más robustos ante cambios futuros en el HTML.
+*   **Cosmético:** el HUD usaba IDs heredados de otro proyecto (`onx-speedo`); se renombraron a `d87-speedo` por consistencia.
 
 ---
 
