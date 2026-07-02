@@ -24,24 +24,26 @@ Config.CruiseKey = 'Y'            -- Tecla para activar/desactivar el Control de
 Config.FuelAlertPercent = 20      -- Reserva de gasolina
 Config.EngineAlertPercent = 30    -- Alerta de motor
 
--- CONFIGURACIÓN DE DURABILIDAD REAL DE VEHÍCULOS (NUEVO)
+-- CONFIGURACIÓN DE DURABILIDAD REAL DE VEHÍCULOS
 -- Regula el daño que recibe el motor al chocar de forma inmediata.
 -- 1.0 = Daño normal | 0.5 = Aguantan el DOBLE | 0.3 = Aguantan el TRIPLE | 0.2 = Auténticos TANQUES (5 veces más duros)
-Config.VehicleDamageMultiplier = 0.3 
+Config.VehicleDamageMultiplier = 0.3
 
--- CONFIGURACIÓN DE RADARES 
-Config.EnableRadars = false        -- Cambiar a 'false' para desactivar por completo todos los radares del HUD
+-- CONFIGURACIÓN DE RADARES
+-- NOTA: el README indica que los radares vienen activados por defecto, pero aquí
+-- está en 'false'. Revisa cuál es el comportamiento que realmente quieres.
+Config.EnableRadars = false       -- Cambiar a 'false' para desactivar por completo todos los radares del HUD
 Config.RadarDistance = 80.0       -- Distancia en metros a la que el HUD empezará a avisar del radar
 Config.Radars = {
-    { coords = vec3(220.0, -815.0, 30.0), maxSpeed = 50 },  
-    { coords = vec3(-250.0, -900.0, 30.0), maxSpeed = 80 }, 
-    { coords = vec3(1000.0, 200.0, 50.0), maxSpeed = 120 }, 
+    { coords = vec3(220.0, -815.0, 30.0), maxSpeed = 50 },
+    { coords = vec3(-250.0, -900.0, 30.0), maxSpeed = 80 },
+    { coords = vec3(1000.0, 200.0, 50.0), maxSpeed = 120 },
 }
 
 -- COMPATIBILIDAD DE SCRIPTS EXTERNOS SEGÚN TU FRAMEWORK
 Config.FuelSystem = 'auto'        -- Opciones: 'auto', 'bazufix-fuel', 'ox_fuel', 'legacyfuel', 'qb-fuel'
 
--- ⚙️ CONFIGURACIÓN DE MOTOR Y ASISTENCIA DE VOLCADO (NUEVO)
+-- CONFIGURACIÓN DE MOTOR Y ASISTENCIA DE VOLCADO
 Config.EngineKey = 'M'           -- Tecla física para encender/apagar el motor (Mapeo nativo de FiveM)
 Config.FlipDuration = 4000       -- Cuántos milisegundos (4 segundos) dura la barra de progreso al desvolcar
 Config.FlipDistance = 3.0        -- Distancia máxima en metros a la que debes estar del coche para desvolcarlo
